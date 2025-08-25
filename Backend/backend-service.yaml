@@ -1,0 +1,37 @@
+apiVersion: v1
+kind: Service 
+metadata:
+  name: backend-service
+spec: 
+  type: LoadBalancer
+  selector:
+    app: backend 
+  ports: 
+  - name: http 
+    port: 8081
+    targetPort: 8081
+    protocol: TCP
+
+#type 
+#Specifies the type of this Service object.
+#Allowed values are ClusterIP, NodePort,
+#LoadBalancer, and ExternalName. The
+#default value is ClusterIP. The differences
+#between these types are explained in the
+#following sections of this chapter.
+
+
+#selector
+#Specifies the label keys and values that the
+#pod must have in order for this service to
+#forward traffic to it. If you you don’t set
+#this field, you are responsible for managing
+#the service endpoints. This is explained in
+#section 11.3
+
+
+#ports
+#List of ports exposed by this service. Each
+#entry can specify the name, protocol,
+#appProtocol, port, nodePort, and
+#targetPort.
